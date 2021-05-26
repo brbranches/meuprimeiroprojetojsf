@@ -17,4 +17,20 @@ public class DaoGeneric<ObjetoGenerico> {
 		entityTransaction.commit();
 		entityManager.close();
 	}
+	
+	
+	public ObjetoGenerico merge(ObjetoGenerico objetoGenerico) {
+		EntityManager entityManager = JPAUtil.getEntityManager();
+		EntityTransaction entityTransaction = entityManager.getTransaction();
+		entityTransaction.begin();
+
+		ObjetoGenerico retorno = entityManager.merge(objetoGenerico);
+
+		entityTransaction.commit();
+		entityManager.close();
+		
+		return retorno;
+	}
+	
+	
 }
