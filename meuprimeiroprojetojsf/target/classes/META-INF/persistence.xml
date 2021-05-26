@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+	<persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence" 
+    xmlns:xsi="http://ww.w3.org/2001/XMLSchema-instance">
+
+
+	<persistence-unit name="meuprimeiroprojetojsf">
+
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<class>br.com.entidades.Pessoa</class>
+		
+		<properties>
+			<!-- Propriedade de url do banco de dados -->
+			<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/meuprimeiroprojetojsf"/>
+			
+			<!-- Propriedade de usuário do banco de dados -->
+			<property name="javax.persistence.jdbc.user" value="postgres"/>
+			
+			<!-- Propriedade de senha do banco de dados -->
+			<property name="javax.persistence.jdbc.password" value="admin"/>
+			
+			<!-- Propriedade de do driver do banco é o que faz a ligação do JPA/Hibernate com o banco -->
+			<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
+			
+			<!-- Propriedade dialect, diz pro hibernate que ele deve falar a lingua do postgres -->
+			<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>
+			
+			<!-- Propriedade show_sql - mostra no console o sql que está sendo executado-->
+			<property name="hibernate.show_sql" value="true"/>
+			
+			<!-- Propriedade format_sql - formata o sql que está sendo exibido no console, para melhor visualização-->
+			<property name="hibernate.format_sql" value="true"/>
+			
+			<!-- Propriedade hbm2ddl.auto diz para o hibernate criar a tabela direto no banco 
+			(Update é para atualizar o banco)
+			(Create é para criar a tabela no banco -->
+			<property name="hibernate.hbm2ddl.auto" value="update"/>
+			
+			
+			
+		</properties>
+
+
+	</persistence-unit>
+
+</persistence>

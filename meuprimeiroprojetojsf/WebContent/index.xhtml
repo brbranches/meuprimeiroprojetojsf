@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+
+
+<h:head>
+	<title>Olá JSF</title>
+	<script>
+		function alterarValorDoCampo() {
+			var campo = document.getElementById('formPessoa:nome');
+			campo.value = 'eu cliquei no campo:)';
+		}
+	</script>
+	<h:body>
+
+		<h:form id="formPessoa">
+
+			<h1>Olá JSF página index.jsf</h1>
+
+			<h:inputText id="nome" onclick="this.value='troquei o valor'" onchange="this.value = this.value.toUpperCase();"/>
+			<h:commandButton value="Clicar" onclick="alterarValorDoCampo();"/>
+
+			<br />
+			<br />
+			<!-- 			Navegação IMPLICITA, pois está definida no corpo do XHTML e não precisa colocar a extensão. -->
+			<h:commandButton value="Navegar Implicita"
+				action="primeirapagina?faces-redirect=true" />
+
+
+			<!-- 			Navegação EXPLICITA, pois está definida no corpo do XHTML e não precisa colocar a extensão. -->
+			<h:commandButton value="Navegar Explicita" action="explicita" />
+
+
+		</h:form>
+	</h:body>
+</h:head>
+
+
+</html>
