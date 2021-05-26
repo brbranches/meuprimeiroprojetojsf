@@ -1,16 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
-        
-    <wb-module deploy-name="meuprimeiroprojetojsf">
-                
-        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
-                
-        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/test/java"/>
-                
-        <wb-resource deploy-path="/" source-path="/WebContent"/>
-                
-        <property name="java-output-path" value="/meuprimeiroprojetojsf/target/classes"/>
-        <property name="context-root" value="meuprimeiroprojetojsf"/>
             
-    </wb-module>
     
+    <wb-module deploy-name="Meuprimeiroprojetojsf">
+                        
+        
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
+                        
+        
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/test/java"/>
+                        
+        
+        <wb-resource deploy-path="/" source-path="/WebContent"/>
+                        
+        
+        <property name="java-output-path" value="/Meuprimeiroprojetojsf/target/classes"/>
+        <property name="context-root" value="Meuprimeiroprojetojsf"/>
+                    
+    
+    </wb-module>
+        
+
 </project-modules>
