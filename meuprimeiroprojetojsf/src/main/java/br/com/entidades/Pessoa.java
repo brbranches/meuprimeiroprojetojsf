@@ -21,8 +21,25 @@ public class Pessoa implements Serializable {
 
 	private String nome;
 	private String sobrenome;
+	private int idade;
 	private Date dataNascimento;
-	private String estadoCivilString;
+	private String estadoCivil;
+
+	public String getEstadoCivil() {
+		return estadoCivil;
+	}
+
+	public void setEstadoCivil(String estadoCivil) {
+		this.estadoCivil = estadoCivil;
+	}
+
+	public int getIdade() {
+		return idade;
+	}
+
+	public void setIdade(int idade) {
+		this.idade = idade;
+	}
 
 	public Long getId() {
 		return id;
@@ -41,10 +58,6 @@ public class Pessoa implements Serializable {
 		return dataNascimento;
 	}
 
-	public String getEstadoCivilString() {
-		return estadoCivilString;
-	}
-
 	public void setId(Long id) {
 		this.id = id;
 	}
@@ -59,10 +72,6 @@ public class Pessoa implements Serializable {
 
 	public void setDataNascimento(Date dataNascimento) {
 		this.dataNascimento = dataNascimento;
-	}
-
-	public void setEstadoCivilString(String estadoCivilString) {
-		this.estadoCivilString = estadoCivilString;
 	}
 
 	public Pessoa() {
