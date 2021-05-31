@@ -1,5 +1,7 @@
 package br.com.dao;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 
@@ -51,6 +53,18 @@ public class DaoGeneric<ObjetoGenerico> {
 
 		entityTransaction.commit();
 		entityManager.close();
+	}
+	
+	public List<ObjetoGenerico> listar(Class<ObjetoGenerico> objetoGenerico){
+		EntityManager entityManager = JPAUtil.getEntityManager();
+		EntityTransaction entityTransaction = entityManager.getTransaction();
+		entityTransaction.begin();
+		
+		List<ObjetoGenerico> retorno = entityManager.createQuery("from " + objetoGenerico.getName() + " ORDER BY id ASC").getResultList();
+		
+		
+		return retorno;
+		
 	}
 	
 	
