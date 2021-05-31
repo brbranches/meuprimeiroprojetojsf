@@ -11,12 +11,15 @@
 
 	<h:body>
 
-		<h:form id="formPessoa">
+		<h:form>
+			<h:commandLink style="margin-left:1cm" value="Administração" action="primeirapagina" rendered="#{pessoaBean.permiteAcesso('Administrador')}"/>
+			<h:commandLink style="margin-left:1cm" value="Lançamentos" action="lancamentos"/>
+			<h:commandLink style="margin-left:1cm" value="Sair" action="index"/>
+		</h:form>
 
+		<h:form id="formPessoa" rendered="#{pessoaBean.permiteAcesso('Administrador')}">
 
-
-			<!-- 			<h1>Olá JSF</h1> -->
-
+			<!-- Rendered=true, exibe ou não elemento na tela. -->
 			<h:panelGrid columns="2">
 
 				<f:facet name="header">
@@ -73,28 +76,34 @@
 					value="#{pessoaBean.pessoa.perfilUser}" required="false">
 					<f:selectItem itemValue="NÃO INFORMADO" itemLabel="[-Selecione-]"
 						noSelectionOption="true" />
-					<f:selectItem itemValue="Administrador"/>
-					<f:selectItem itemValue="Secretário"/>
-					<f:selectItem itemValue="Professor"/>
-					<f:selectItem itemValue="Recepcionista"/>
+					<f:selectItem itemValue="Administrador" />
+					<f:selectItem itemValue="Secretário" />
+					<f:selectItem itemValue="Professor" />
+					<f:selectItem itemValue="Recepcionista" />
 				</h:selectOneMenu>
 
 
 
 				<h:outputLabel />
 				<h:panelGroup>
-					<h:commandButton value="Salvar" action="#{pessoaBean.salvar}"
-						title="Salvar" style="height:30px; weight:30px"
-						image="/resources/imagens/salvar.png" />
+
 					<h:commandButton value="Novo" action="#{pessoaBean.novo}"
-						title="Novo" style="height:30px; weight:30px"
-						image="/resources/imagens/add_user_2.png" />
+						title="Novo" style="height:40px; weight:40px"
+						image="/resources/imagens/add_user_3.png" />
+
+					<h:commandButton value="Salvar" action="#{pessoaBean.salvar}"
+						title="Salvar" style="height:40px; weight:40px"
+						image="/resources/imagens/salvar_2.png" />
+
 					<h:commandButton value="Remover" action="#{pessoaBean.remove}"
-						title="Remover" style="height:30px; weight:30px"
-						image="/resources/imagens/remove.png" />
+						title="Remover" style="height:40px; weight:40px"
+						image="/resources/imagens/remove_2.png"
+						rendered="#{pessoaBean.permiteAcesso('Administrador')}" />
+
 					<h:commandButton value="Limpar" type="reset" title="Limpar"
-						style="height:30px; weight:30px"
+						style="height:40px; weight:40px"
 						image="/resources/imagens/limpar.png" />
+
 				</h:panelGroup>
 
 
@@ -140,10 +149,10 @@
 						<f:facet name="header">Sexo</f:facet>
 						<h:outputText value="#{pessoa.sexo}" />
 					</h:column>
-					
+
 					<h:column>
 						<f:facet name="header">Perfil</f:facet>
-						<h:outputText value="#{pessoa.perfilUser}"/>
+						<h:outputText value="#{pessoa.perfilUser}" />
 					</h:column>
 
 					<h:column headerText="Ativo">
@@ -162,7 +171,7 @@
 						</h:commandLink>
 					</h:column>
 
-					<h:column>
+					<h:column rendered="#{pessoaBean.permiteAcesso('Administrador')}">
 						<f:facet name="header">Remover</f:facet>
 						<h:commandLink action="#{pessoaBean.remove}"
 							style="text-align:center">
