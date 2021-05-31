@@ -27,9 +27,38 @@ public class Pessoa implements Serializable {
 	private String sexo;
 	private String[] frameworks;
 	private Boolean ativo;
+	private String login;
+	private String senha;
+	private String perfilUser;
 	
 	
 	
+	
+	
+	public String getPerfilUser() {
+		return perfilUser;
+	}
+
+	public void setPerfilUser(String perfilUser) {
+		this.perfilUser = perfilUser;
+	}
+
+	public String getLogin() {
+		return login;
+	}
+
+	public String getSenha() {
+		return senha;
+	}
+
+	public void setLogin(String login) {
+		this.login = login;
+	}
+
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
+
 	public Boolean getAtivo() {
 		return ativo;
 	}

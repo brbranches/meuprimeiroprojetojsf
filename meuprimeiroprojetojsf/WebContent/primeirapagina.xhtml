@@ -7,7 +7,7 @@
 
 
 <h:head>
-	<title>Olá JSF</title>
+	<title>Cadastro de Usuários</title>
 
 	<h:body>
 
@@ -20,10 +20,8 @@
 			<h:panelGrid columns="2">
 
 				<f:facet name="header">
-					<h:graphicImage height="30" width="30" library="imagens"
-						name="java.png" />
 
-					<h:outputText value="Cadastro em JSF" />
+					<h:outputText value="Cadastro de Usuários" />
 
 				</f:facet>
 
@@ -47,8 +45,8 @@
 					required="false">
 					<f:selectItem itemValue="NÃO INFORMADO" itemLabel="[-Selecione-]"
 						noSelectionOption="true" />
-					<f:selectItem itemValue="MASCULINO" itemLabel="Masculino" />
-					<f:selectItem itemValue="FEMININO" itemLabel="Feminino" />
+					<f:selectItem itemValue="Masculino" itemLabel="Masculino" />
+					<f:selectItem itemValue="Feminino" itemLabel="Feminino" />
 				</h:selectOneMenu>
 
 				<h:outputLabel value="Frameworks" />
@@ -64,12 +62,39 @@
 				<h:outputLabel value="Ativo" />
 				<h:selectBooleanCheckbox value="#{pessoaBean.pessoa.ativo}" />
 
+				<h:outputLabel value="Login" />
+				<h:inputText value="#{pessoaBean.pessoa.login}" />
+
+				<h:outputLabel value="Senha" />
+				<h:inputSecret value="#{pessoaBean.pessoa.senha}" />
+
+				<h:outputLabel value="Perfil" />
+				<h:selectOneMenu id="campoPerfil"
+					value="#{pessoaBean.pessoa.perfilUser}" required="false">
+					<f:selectItem itemValue="NÃO INFORMADO" itemLabel="[-Selecione-]"
+						noSelectionOption="true" />
+					<f:selectItem itemValue="Administrador"/>
+					<f:selectItem itemValue="Secretário"/>
+					<f:selectItem itemValue="Professor"/>
+					<f:selectItem itemValue="Recepcionista"/>
+				</h:selectOneMenu>
+
+
+
 				<h:outputLabel />
 				<h:panelGroup>
-					<h:commandButton value="Salvar" action="#{pessoaBean.salvar}" title="Salvar" style="height:30px; weight:30px" image="/resources/imagens/salvar.png"/>
-					<h:commandButton value="Novo" action="#{pessoaBean.novo}" title="Novo" style="height:30px; weight:30px" image="/resources/imagens/add_user_2.png"/>
-					<h:commandButton value="Remover" action="#{pessoaBean.remove}" title="Remover" style="height:30px; weight:30px" image="/resources/imagens/remove.png"/>
-					<h:commandButton value="Limpar" type="reset" title="Limpar" style="height:30px; weight:30px" image="/resources/imagens/limpar.png"/>
+					<h:commandButton value="Salvar" action="#{pessoaBean.salvar}"
+						title="Salvar" style="height:30px; weight:30px"
+						image="/resources/imagens/salvar.png" />
+					<h:commandButton value="Novo" action="#{pessoaBean.novo}"
+						title="Novo" style="height:30px; weight:30px"
+						image="/resources/imagens/add_user_2.png" />
+					<h:commandButton value="Remover" action="#{pessoaBean.remove}"
+						title="Remover" style="height:30px; weight:30px"
+						image="/resources/imagens/remove.png" />
+					<h:commandButton value="Limpar" type="reset" title="Limpar"
+						style="height:30px; weight:30px"
+						image="/resources/imagens/limpar.png" />
 				</h:panelGroup>
 
 
@@ -83,7 +108,7 @@
 					border="3" cellpadding="16">
 
 					<f:facet name="header">
-						Lista de pessoas cadastradas
+						Lista de usuários cadastrados
 					</f:facet>
 
 					<h:column headerText="Id">
@@ -101,33 +126,54 @@
 						<h:outputText value="#{pessoa.sobrenome}" />
 					</h:column>
 
+					<h:column headerText="Login">
+						<f:facet name="header">Login</f:facet>
+						<h:outputText value="#{pessoa.login}" />
+					</h:column>
+
 					<h:column headerText="Estado Civil">
 						<f:facet name="header">Estado civil</f:facet>
 						<h:outputText value="#{pessoa.estadoCivil}" />
 					</h:column>
 
-					<h:column headerText="Sexto">
+					<h:column headerText="Sexo">
 						<f:facet name="header">Sexo</f:facet>
 						<h:outputText value="#{pessoa.sexo}" />
 					</h:column>
+					
+					<h:column>
+						<f:facet name="header">Perfil</f:facet>
+						<h:outputText value="#{pessoa.perfilUser}"/>
+					</h:column>
+
+					<h:column headerText="Ativo">
+						<f:facet name="header">Ativo</f:facet>
+						<h:selectBooleanCheckbox value="#{pessoa.ativo}" disabled="true" />
+					</h:column>
+
 
 					<h:column>
 						<f:facet name="header">Editar</f:facet>
 						<h:commandLink>
-							<f:setPropertyActionListener value="#{pessoa}" target="#{pessoaBean.pessoa}" />
-							<h:graphicImage value="resources/imagens/editar.png" style="height: 30px; weight:30px; text-align:center"/>
+							<f:setPropertyActionListener value="#{pessoa}"
+								target="#{pessoaBean.pessoa}" />
+							<h:graphicImage value="resources/imagens/editar.png"
+								style="height: 30px; weight:30px; text-align:center" />
 						</h:commandLink>
 					</h:column>
 
 					<h:column>
 						<f:facet name="header">Remover</f:facet>
-						<h:commandLink action="#{pessoaBean.remove}" style="text-align:center">
-							<f:setPropertyActionListener value="#{pessoa}" target="#{pessoaBean.pessoa}" />
-								<h:graphicImage value="resources/imagens/remove.png" style="height: 30px; weight:30px; text-align:center"/>
+						<h:commandLink action="#{pessoaBean.remove}"
+							style="text-align:center">
+							<f:setPropertyActionListener value="#{pessoa}"
+								target="#{pessoaBean.pessoa}" />
+							<h:graphicImage value="resources/imagens/remove.png"
+								style="height: 30px; weight:30px; text-align:center" />
 						</h:commandLink>
 					</h:column>
 
-				
+
 
 
 				</h:dataTable>
