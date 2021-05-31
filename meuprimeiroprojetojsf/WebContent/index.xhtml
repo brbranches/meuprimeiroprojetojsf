@@ -6,32 +6,13 @@
 
 
 <h:head>
-	<title>Olá JSF</title>
-	<script>
-		function alterarValorDoCampo() {
-			var campo = document.getElementById('formPessoa:nome');
-			campo.value = 'eu cliquei no campo:)';
-		}
-	</script>
+	<title>Login</title>
+
 	<h:body>
 
 		<h:form id="formPessoa">
 
-			<h1>Olá JSF página index.jsf</h1>
-
-			<h:inputText id="nome" onclick="this.value='troquei o valor'" onchange="this.value = this.value.toUpperCase();"/>
-			<h:commandButton value="Clicar" onclick="alterarValorDoCampo();"/>
-
-			<br />
-			<br />
-			<!-- 			Navegação IMPLICITA, pois está definida no corpo do XHTML e não precisa colocar a extensão. -->
-			<h:commandButton value="Navegar Implicita"
-				action="primeirapagina?faces-redirect=true" />
-
-
-			<!-- 			Navegação EXPLICITA, pois está definida no corpo do XHTML e não precisa colocar a extensão. -->
-			<h:commandButton value="Navegar Explicita" action="explicita" />
-
+			<h1>Realize o Login</h1>
 
 		</h:form>
 	</h:body>
