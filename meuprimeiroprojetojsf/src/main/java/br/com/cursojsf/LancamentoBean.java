@@ -42,7 +42,7 @@ public class LancamentoBean {
 
 	public Lancamento getLancamento() {
 		return lancamento;
-	}
+	} 
 
 	public DaoGeneric<Lancamento> getDaoGeneric() {
 		return daoGeneric;
