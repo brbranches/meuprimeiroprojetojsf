@@ -13,14 +13,14 @@
 
 		<h:form>
 			<h:commandLink style="margin-left:1cm" value="Administração" action="primeirapagina" rendered="#{pessoaBean.permiteAcesso('Administrador')}"/>
-			<h:commandLink style="margin-left:1cm" value="Lançamentos" action="lancamentos"/>
+			<h:commandLink style="margin-left:1cm" value="Lançamentos" action="lancamento"/>
 			<h:commandLink style="margin-left:1cm" value="Sair" action="index"/>
 		</h:form>
 
-		<h:form id="formPessoa" rendered="#{pessoaBean.permiteAcesso('Administrador')}">
+		<h:form id="formPessoa" rendered="#{pessoaBean.permiteAcesso('Administrador')}" >
 
 			<!-- Rendered=true, exibe ou não elemento na tela. -->
-			<h:panelGrid columns="2">
+			<h:panelGrid columns="2" style="margin-top:2%; margin-left:35%">
 
 				<f:facet name="header">
 
@@ -114,7 +114,7 @@
 
 			<div class="card">
 				<h:dataTable value="#{pessoaBean.listaPessoas}" var="pessoa"
-					border="3" cellpadding="16">
+					border="3" cellpadding="16" style="margin-left:15%">
 
 					<f:facet name="header">
 						Lista de usuários cadastrados

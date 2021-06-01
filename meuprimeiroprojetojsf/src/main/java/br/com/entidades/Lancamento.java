@@ -19,17 +19,17 @@ public class Lancamento implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-
 	private String numeroNotaFiscal;
-
 	private String empresaOrigem;
-
 	private String emrpesaDestino;
-
+	
 	@ManyToOne(optional = false)
 	@ForeignKey(name = "usuario_fk")
 	private Pessoa usuario;
 
+	
+	
+	
 	public Long getId() {
 		return id;
 	}

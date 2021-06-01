@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="ISO-8859-1" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://java.sun.com/jsf/html">
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
 
 
 
@@ -9,9 +10,56 @@
 	<title>Lançamentos</title>
 
 	<h:body>
+	
+		<h:form>
+				<h:commandLink style="margin-left:1cm" value="Administração" action="primeirapagina" rendered="#{pessoaBean.permiteAcesso('Administrador')}"/>
+			<h:commandLink style="margin-left:1cm" value="Lançamentos" action="lancamento"/>
+			<h:commandLink style="margin-left:1cm" value="Sair" action="index"/>
+		</h:form>
 
-		<h:form id="formLancamento" style="margin-top:18%; margin-left:40%">
+		<h:form id="formLancamento" style="margin-top:8%; margin-left:35%">
 
+			<h:form>
+				<h:panelGrid columns="2">
+					<f:facet name="header">
+						<h:outputLabel>Lançamentos de NF's</h:outputLabel>
+					</f:facet>
+					
+					
+					<h:outputLabel value="Id:"/>
+					<h:inputText value="#{lancamentoBean.lancamento.id}" readonly="true"/>
+					
+					<h:outputLabel value="Nota Fiscal:"/>
+					<h:inputText value="#{lancamentoBean.lancamento.numeroNotaFiscal}" />
+					
+					<h:outputLabel value="Empresa de Origem:"/>
+					<h:inputText value="#{lancamentoBean.lancamento.empresaOrigem}" />
+					
+					<h:outputLabel value="Empresa de Destino:"/>
+					<h:inputText value="#{lancamentoBean.lancamento.emrpesaDestino}" />
+					
+					
+							<h:outputLabel />
+				<h:panelGroup>
+
+					<h:commandButton value="Novo" action="#{lancamentoBean.novo}" title="Novo" style="height:40px; weight:40px"
+						image="/resources/imagens/add_user_3.png" />
+
+					<h:commandButton value="Salvar" action="#{lancamentoBean.salvar}" title="Salvar" style="height:40px; weight:40px"
+						image="/resources/imagens/salvar_2.png" />
+
+					<h:commandButton value="Remover" action="#{lancamentoBean.remove}" title="Remover" style="height:40px; weight:40px"
+						image="/resources/imagens/remove_2.png"
+						rendered="#{pessoaBean.permiteAcesso('Administrador')}" />
+
+					<h:commandButton value="Limpar" type="reset" title="Limpar" style="height:40px; weight:40px"
+						image="/resources/imagens/limpar.png" />
+
+				</h:panelGroup>
+					
+				</h:panelGrid>
+
+			</h:form>
 
 
 		</h:form>
